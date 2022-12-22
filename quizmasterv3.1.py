@@ -28,9 +28,7 @@ question3 = {"How do you insert COMMENTS in Python code?":\
 
 
 def convert_data(questions_list):
-    """convert_data(questions_list) -> str, list, str
-    randomize the quiz sequence.
-    """
+    """convert_data(questions_list) -> str, list, str"""
     rqstion = rnd.choices(questions_list)[0]
     question_key = list(rqstion.keys())[0]
     values_in_nested_list = list(rqstion.values())
@@ -42,58 +40,48 @@ def convert_data(questions_list):
 
 
 def question(questions_list):
-    """question_list --> list"""
+    
     rqstion, val_qstion_key, cval_key = convert_data(questions_list)
-    # print question
     print(rqstion)
-    # Returning randomized 3 answers in list 
     answers_in_list = rnd.sample(val_qstion_key, 3)
     if cval_key in answers_in_list:
-        n = True
-        while n:
-            # If the right answers already is in the answers list
+        is_in_loop = True
+        while is_in_loop:
             if cval_key in answers_in_list:
-                # answers_in_list must have 3 randomized answers in list
+                # Create a new random values list
                 answers_in_list = rnd.sample(val_qstion_key, 3)
             else:
-                # exit the while loop
-                n = False
+                answers_in_list.append(cval_key)
+                is_in_loop = False
     else:
-        # Add the answer in the answers_in_list
         answers_in_list.append(cval_key)
         
-    # Shuffle the 4 answers in answers_in_list
     rnd.shuffle(answers_in_list)
 
-    # Print the values with the index number
-    # Index number is used for picking an answer
     for idx, ans in enumerate(answers_in_list):
         print(f"{idx}){ans}")
 
     try:
         answer_from_user = int(input("Answer: "))
     except ValueError as e:
-        # Except needs more attention and depth
         print(e)
     else:
-        # If input value is accepted, validate the answer
         if (cval_key.lower() 
                     == answers_in_list[answer_from_user].lower()):
             print(f"\n{answer_from_user} is correct\n")
         else:
-            print(f"\n{answer_from_user} is incorrect\n")
+            print(f"\n{answer_from_user} is incorrect\nthe right answer: {cval_key}\n")
             
     return questions_list
 
-n = True
+is_in_loop = True
 if __name__ == "__main__":
-    while n:
-        # Trying a dictionary for creating a menu
+    while is_in_loop:
         dct = {1: question([question1, question2, question3]), \
                2: False}
         try:
             opt = int(input("1)Question 2)Quit\n"))
-            n = dct[opt]
+            is_in_loop = dct[opt]
         except (KeyError, ValueError) as e:
             print(e)
             break

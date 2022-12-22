@@ -49,7 +49,7 @@ def convert_data(questions_list):
 
 
 def question(questions_list):
-    """question(question_list) --> list
+    """question(question_list) -> list
     
     - Calls convert_data with question_list as an argument
     - Handeling the options

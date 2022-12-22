@@ -48,7 +48,7 @@ def convert_data(questions_list):
 
 
 def question(questions_list):
-    """question(questions_list) --> list
+    """question(questions_list) -> list
     
     Handeling the options
     Prompting answer from user
@@ -86,7 +86,7 @@ def question(questions_list):
         else:
             print(f"\nIncorrect, the right answer: {correct_ans}\n")
     
-    return question_list
+    return questions_list
 
 is_in_loop = True
 if __name__ == "__main__":

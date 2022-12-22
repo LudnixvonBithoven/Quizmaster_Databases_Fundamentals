@@ -97,4 +97,3 @@ if __name__ == "__main__":
             is_in_loop = menu_dict[opt]
         except (KeyError, ValueError) as e:
             print(e)
-            break

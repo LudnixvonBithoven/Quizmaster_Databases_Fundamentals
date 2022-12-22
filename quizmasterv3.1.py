@@ -7,9 +7,9 @@
 import random as rnd
 
 
-question1 = {"print([0, 1, [2, 3]][1:])) would result in?":\
+question1 = {"print([0, 1, [2, 3]][1:])) would result in?": \
                 ["[1, [2, 3]]", "[1]", \
-                 "typeError: 'int' object is not subscriptable", 
+                 "typeError: 'int' object is not subscriptable",
                  "[2, 3]",
                  "DatatypeError: 'list' object is not subscriptable", \
                  "[1, []]`", "[1, 2, 3]"]}
@@ -30,9 +30,9 @@ question3 = {"How do you insert COMMENTS in Python code?":\
 def convert_data(questions_list):
     """convert_data(questions_list) -> str, list, str
     
-    Random picking a question from question_list 
+    Random picking a question from question_list
     Randomize values from gives question/key
-    
+
     Only called by the function question
     """
     rqstion = rnd.choices(questions_list)[0]
@@ -56,9 +56,12 @@ def question(questions_list):
     Prompting answer from user
     validate the answer
     """
+    # Call and unpack the convert_data function
     rqstion, val_qstion_key, cval_key = convert_data(questions_list)
+    # Prints the given rqstion - random question
     print(rqstion)
     answers_in_list = rnd.sample(val_qstion_key, 3)
+    # Prevents the correct answer to be added twice
     if cval_key in answers_in_list:
         is_in_loop = True
         while is_in_loop:
@@ -84,7 +87,7 @@ def question(questions_list):
         if cval_key.lower() == answers_in_list[answer_from_user].lower():
             print(f"\n{answer_from_user} is correct\n")
         else:
-            print(f"\nIncorrect, {the right answer: {cval_key}\n")
+            print(f"\nIncorrect, {the right answer}: {cval_key}\n")
             
     return questions_list
 

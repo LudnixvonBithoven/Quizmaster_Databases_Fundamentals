@@ -10,7 +10,7 @@ import random as rnd
 question1 = {"print([0, 1, [2, 3]][1:])) would result in?":\
                 ["[1, [2, 3]]", "[1]", \
                  "typeError: 'int' object is not subscriptable", 
-                 "[2, 3]", 
+                 "[2, 3]",
                  "DatatypeError: 'list' object is not subscriptable", \
                  "[1, []]`", "[1, 2, 3]"]}
 
@@ -28,19 +28,34 @@ question3 = {"How do you insert COMMENTS in Python code?":\
 
 
 def convert_data(questions_list):
-    """convert_data(questions_list) -> str, list, str"""
+    """convert_data(questions_list) -> str, list, str
+    
+    Random picking a question from question_list 
+    Randomize values from gives question/key
+    
+    Only called by the function question
+    """
     rqstion = rnd.choices(questions_list)[0]
+    # Note - This part needs to be updated
     question_key = list(rqstion.keys())[0]
+    # -----------------------------------
     values_in_nested_list = list(rqstion.values())
+    # Unpack nested values
     values_in_list = values_in_nested_list[0]
     val_qstion_key = rqstion.get(question_key)
+    # Correct value from given key
     cval_key = val_qstion_key[0]
-        
+
     return question_key, values_in_list, cval_key
 
 
 def question(questions_list):
+    """question(question_list) --> list
     
+    Handeling the options
+    Prompting answer from user
+    validate the answer
+    """
     rqstion, val_qstion_key, cval_key = convert_data(questions_list)
     print(rqstion)
     answers_in_list = rnd.sample(val_qstion_key, 3)
@@ -66,11 +81,10 @@ def question(questions_list):
     except ValueError as e:
         print(e)
     else:
-        if (cval_key.lower() 
-                    == answers_in_list[answer_from_user].lower()):
+        if cval_key.lower() == answers_in_list[answer_from_user].lower():
             print(f"\n{answer_from_user} is correct\n")
         else:
-            print(f"\n{answer_from_user} is incorrect\nthe right answer: {cval_key}\n")
+            print(f"\nIncorrect, {the right answer: {cval_key}\n")
             
     return questions_list
 

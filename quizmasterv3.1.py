@@ -30,73 +30,71 @@ question3 = {"How do you insert COMMENTS in Python code?":\
 def convert_data(questions_list):
     """convert_data(questions_list) -> str, list, str
     
-    - Random picking a question from question_list
-    - Randomize values from gives question/key
-    - Only called by the function question
+    Random picking a question from questions_list
+    Randomize values from gives question/key
+    Only called by the function question
     """
-    rqstion = rnd.choices(questions_list)[0]
-    # Note - This part needs to be updated
-    question_key = list(rqstion.keys())[0]
-    # -----------------------------------
-    values_in_nested_list = list(rqstion.values())
+    rnd_question_ans = rnd.choices(questions_list)[0]
+    # Unpack question key
+    question_key = list(rnd_question_ans.keys())[0]
+    values_in_nested_list = list(rnd_question_ans.values())
     # Unpack nested values
-    values_in_list = values_in_nested_list[0]
-    val_qstion_key = rqstion.get(question_key)
+    values_listed = values_in_nested_list[0]
+    val_of_question = rnd_question_ans.get(question_key)
     # Correct value from given key
-    cval_key = val_qstion_key[0]
+    correct_ans = val_of_question[0]
 
-    return question_key, values_in_list, cval_key
+    return question_key, values_listed, correct_ans
 
 
 def question(questions_list):
-    """question(question_list) -> list
+    """question(questions_list) --> list
     
-    - Calls convert_data with question_list as an argument
-    - Handeling the options
-    - Prompting answer from user
-    - validate the answer
+    Handeling the options
+    Prompting answer from user
+    validate the answer
     """
     # Call and unpack the convert_data function
-    rqstion, val_qstion_key, cval_key = convert_data(questions_list)
-    # Prints the given rqstion - random question
-    print(rqstion)
-    answers_in_list = rnd.sample(val_qstion_key, 3)
+    question, val_of_question, correct_ans = convert_data(questions_list)
+    # Prints the given question - random question
+    print(f"{question}\n")
+    answers_in_list = rnd.sample(val_of_question, 3)
     # Prevents the correct answer to be added twice
-    if cval_key in answers_in_list:
+    if correct_ans in answers_in_list:
         is_in_loop = True
         while is_in_loop:
-            if cval_key in answers_in_list:
+            if correct_ans in answers_in_list:
                 # Create a new random values list
-                answers_in_list = rnd.sample(val_qstion_key, 3)
+                answers_in_list = rnd.sample(val_of_question, 3)
             else:
-                answers_in_list.append(cval_key)
+                answers_in_list.append(correct_ans)
                 is_in_loop = False
     else:
-        answers_in_list.append(cval_key)
+        answers_in_list.append(correct_ans)
         
     rnd.shuffle(answers_in_list)
     for idx, ans in enumerate(answers_in_list):
         print(f"{idx}){ans}")
 
     try:
-        answer_from_user = int(input("Answer: "))
+        answer_from_user = int(input("Answer: \n"))
     except ValueError as e:
         print(e)
     else:
-        if cval_key.lower() == answers_in_list[answer_from_user].lower():
+        if correct_ans.lower() == answers_in_list[answer_from_user].lower():
             print(f"\n{answer_from_user} is correct\n")
         else:
-            print(f"\nIncorrect, the right answer: {cval_key}\n")
-            
-    return questions_list
+            print(f"\nIncorrect, the right answer: {correct_ans}\n")
+    
+    return question_list
 
 is_in_loop = True
 if __name__ == "__main__":
     while is_in_loop:
-        dct = {1: question([question1, question2, question3]), 2: False}
+        menu_dict = {1: question([question1, question2, question3]), 2: False}
         try:
             opt = int(input("1)Question 2)Quit\n"))
-            is_in_loop = dct[opt]
+            is_in_loop = menu_dict[opt]
         except (KeyError, ValueError) as e:
             print(e)
             break

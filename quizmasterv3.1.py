@@ -74,7 +74,6 @@ def question(questions_list):
         answers_in_list.append(cval_key)
         
     rnd.shuffle(answers_in_list)
-
     for idx, ans in enumerate(answers_in_list):
         print(f"{idx}){ans}")
 

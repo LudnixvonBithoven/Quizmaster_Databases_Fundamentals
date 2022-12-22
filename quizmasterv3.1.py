@@ -94,8 +94,7 @@ def question(questions_list):
 is_in_loop = True
 if __name__ == "__main__":
     while is_in_loop:
-        dct = {1: question([question1, question2, question3]), \
-               2: False}
+        dct = {1: question([question1, question2, question3]), 2: False}
         try:
             opt = int(input("1)Question 2)Quit\n"))
             is_in_loop = dct[opt]

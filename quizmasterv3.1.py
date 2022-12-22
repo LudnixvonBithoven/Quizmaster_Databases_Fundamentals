@@ -7,29 +7,29 @@
 import random as rnd
 
 
-question1 = {"print([0, 1, [2, 3]][1:])) would result in?": \
-                ["[1, [2, 3]]", "[1]", \
+question1 = {"print([0, 1, [2, 3]][1:])) would result in?":\
+                ["[1, [2, 3]]", "[1]",\
                  "typeError: 'int' object is not subscriptable",
                  "[2, 3]",
-                 "DatatypeError: 'list' object is not subscriptable", \
+                 "DatatypeError: 'list' object is not subscriptable",\
                  "[1, []]`", "[1, 2, 3]"]}
 
 question2 = {"print(type({})) would result in?":\
-                ["<class 'dict'>", "<class 'set'>", \
-                 "<class 'list'>", "dict", \
-                 "{}", "```dict()```", \
+                ["<class 'dict'>", "<class 'set'>",\
+                 "<class 'list'>", "dict",\
+                 "{}", "```dict()```",\
                 "print('NameError: name '{}' is not defined')"]}
 
 question3 = {"How do you insert COMMENTS in Python code?":\
-                ["#This is a comment", "/*This is a comment*/", \
-                 "//This is comment", "<!-- This is a comment -->", \
-                 "###This is a comment", "```This is a comment```", \
+                ["#This is a comment", "/*This is a comment*/",\
+                 "//This is comment", "<!-- This is a comment -->",\
+                 "###This is a comment", "```This is a comment```",\
                 "print('This is a comment')"]}
 
 
 def convert_data(questions_list):
     """convert_data(questions_list) -> str, list, str
-    
+
     Random picking a question from questions_list
     Randomize values from gives question/key
     Only called by the function question
@@ -71,10 +71,10 @@ def question(questions_list):
                 is_in_loop = False
     else:
         answers_in_list.append(correct_ans)
-        
+
     rnd.shuffle(answers_in_list)
     for idx, ans in enumerate(answers_in_list):
-        print(f"{idx}){ans}")
+        print(f"{idx}) {ans}")
 
     try:
         answer_from_user = int(input("Answer: \n"))
@@ -90,6 +90,7 @@ def question(questions_list):
 
 is_in_loop = True
 if __name__ == "__main__":
+    # Creating a menu with a dictionary
     while is_in_loop:
         menu_dict = {1: question([question1, question2, question3]), 2: False}
         try:

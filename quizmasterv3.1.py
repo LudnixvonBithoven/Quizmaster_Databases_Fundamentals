@@ -32,7 +32,6 @@ def convert_data(questions_list):
     
     Random picking a question from question_list
     Randomize values from gives question/key
-
     Only called by the function question
     """
     rqstion = rnd.choices(questions_list)[0]
@@ -87,7 +86,7 @@ def question(questions_list):
         if cval_key.lower() == answers_in_list[answer_from_user].lower():
             print(f"\n{answer_from_user} is correct\n")
         else:
-            print(f"\nIncorrect, {the right answer}: {cval_key}\n")
+            print(f"\nIncorrect, the right answer: {cval_key}\n")
             
     return questions_list
 

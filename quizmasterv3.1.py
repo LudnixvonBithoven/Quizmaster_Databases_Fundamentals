@@ -42,7 +42,7 @@ def convert_data(questions_list):
 
 
 def question(questions_list):
-    """ question_list --> list """
+    """question_list --> list"""
     rqstion, val_qstion_key, cval_key = convert_data(questions_list)
     # print question
     print(rqstion)

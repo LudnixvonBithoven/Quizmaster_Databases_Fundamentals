@@ -30,9 +30,9 @@ question3 = {"How do you insert COMMENTS in Python code?":\
 def convert_data(questions_list):
     """convert_data(questions_list) -> str, list, str
     
-    Random picking a question from question_list
-    Randomize values from gives question/key
-    Only called by the function question
+    - Random picking a question from question_list
+    - Randomize values from gives question/key
+    - Only called by the function question
     """
     rqstion = rnd.choices(questions_list)[0]
     # Note - This part needs to be updated
@@ -51,9 +51,10 @@ def convert_data(questions_list):
 def question(questions_list):
     """question(question_list) --> list
     
-    Handeling the options
-    Prompting answer from user
-    validate the answer
+    - Calls convert_data with question_list as an argument
+    - Handeling the options
+    - Prompting answer from user
+    - validate the answer
     """
     # Call and unpack the convert_data function
     rqstion, val_qstion_key, cval_key = convert_data(questions_list)

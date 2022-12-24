@@ -82,7 +82,7 @@ def question(questions_dict):
         print(e)
     else:
         if correct_answer.lower() == answers_in_list[answer_from_user].lower():
-            print(f"\n{answer_from_user} is correct\n")
+            print(f"\n{answers_in_list[answer_from_user]} - is correct\n")
         else:
             print(f"\nIncorrect, the right answer: {correct_answer}\n")
         

@@ -29,6 +29,7 @@ question3 = {"How do you insert COMMENTS in Python code?":\
 
 def convert_data(questions_dict):
     """convert_data(questions_dict) -> str, list, str
+    
     Random picking a question from questions_dict
     Randomize values from gives question/key
     Only called by the function question
@@ -37,6 +38,7 @@ def convert_data(questions_dict):
     all_keys = list(questions_dict.keys())
     random_key = rnd.choices(all_keys)[0]
     question_answers = questions_dict.get(random_key)
+    # Note: check if listing and unpacking is needed
     question = list(question_answers.keys())[0]
     answers = list(question_answers.values())[0]
     correct_answer = answers[0]
@@ -89,7 +91,7 @@ def question(questions_dict):
 is_in_loop = True
 if __name__ == "__main__":
     # Note: this block needs a better looking logic
-    questions_dict = {"a": question1, "b": question2, "c": question3}
+    questions_dict = {"q1": question1, "q2": question2, "q3": question3}
     while is_in_loop:
         # If the questions dictionary isn't empty
         if questions_dict:
@@ -101,5 +103,5 @@ if __name__ == "__main__":
             except (KeyError, ValueError) as e:
                 print(e)
         else:
-            # If the questions dict is empty, reload the questions list
-            questions_dict = {"a": question1, "b": question2, "c": question3}
+            # Reload the questions list if empty
+            questions_dict = {"q1": question1, "q2": question2, "q3": question3}

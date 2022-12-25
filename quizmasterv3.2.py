@@ -48,7 +48,7 @@ def convert_data(questions_dict):
     return random_key, question, answers, correct_answer
 
 def question(questions_dict):
-    """question(questions_dict) --> dict
+    """question(questions_dict) -> dict
  
     Handeling the options
     Prompting answer from user

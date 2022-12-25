@@ -55,9 +55,6 @@ def question(questions_dict):
     # Call and unpack the convert_data function
     convert_data(questions_dict)
     rnd_key, question, answers, correct_answer = convert_data(questions_dict)
-    
-    # Prints the given question - random question
-    print(f"{question}\n")
     answers_in_list = rnd.sample(answers, 3)
     # Prevents the correct answer to be added twice
     if correct_answer in answers_in_list:
@@ -75,8 +72,10 @@ def question(questions_dict):
     # Answers list in random order
     rnd.shuffle(answers_in_list)
     # Print the index and answers
+    print(f"{'-'*68}\n|{'':^5}|{question:^60}|\n{'-'*68}")
     for idx, ans in enumerate(answers_in_list):
-        print(f"{idx:<5} {ans:<5}")
+        print(f"|{idx:^5}|{ans:^60}|")
+    print(f"{'-'*68}")
 
     try:
         # User can pick an answer by index
@@ -94,14 +93,14 @@ def question(questions_dict):
 
 is_in_loop = True
 if __name__ == "__main__":
-    # Note: this block needs a better looking logic
     questions_dict = {"q1": question1, "q2": question2, "q3": question3}
     while is_in_loop:
+        # If there's a question in the dictionary
         if questions_dict:
             # Creating a menu with a dictionary
             menu_dict = {1: question(questions_dict), 2: False}
             try:
-                opt = int(input("1)Question 2)Quit\n"))
+                opt = int(input("1)Question 2)Quit"))
                 is_in_loop = menu_dict[opt]
             except (KeyError, ValueError) as e:
                 print(e)

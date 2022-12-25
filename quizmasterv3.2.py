@@ -1,6 +1,8 @@
 #######################################################################
 #                                                                     #
-#                         Quizmaster v3.2 by James                    #
+#                      Quizmaster v3.2 by James                       #
+#                    Randomized questions and answers                 #
+#                   No repeating questions or answers                 #
 #                                                                     #
 #######################################################################
 
@@ -34,7 +36,7 @@ def convert_data(questions_dict):
     Randomize values from gives question/key
     Only called by the function question
     """
-
+    # Get q1, q2, q3
     all_keys = list(questions_dict.keys())
     random_key = rnd.choices(all_keys)[0]
     question_answers = questions_dict.get(random_key)
@@ -72,15 +74,19 @@ def question(questions_dict):
     else:
         answers_in_list.append(correct_answer)
 
+    # Answers list in random order
     rnd.shuffle(answers_in_list)
+    # Print the index and answers
     for idx, ans in enumerate(answers_in_list):
-        print(f"{idx}) {ans}")
+        print(f"{idx:<5} {ans:<5}")
 
     try:
-        answer_from_user = int(input("Answer: \n"))
+        # User can pick an answer by index
+        answer_from_user = int(input("Answer: "))
     except ValueError as e:
         print(e)
     else:
+        # Validating the given answer
         if correct_answer.lower() == answers_in_list[answer_from_user].lower():
             print(f"\n{answers_in_list[answer_from_user]} - is correct\n")
         else:

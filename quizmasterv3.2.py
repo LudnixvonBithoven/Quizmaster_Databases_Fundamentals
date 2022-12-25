@@ -109,5 +109,5 @@ if __name__ == "__main__":
             except (KeyError, ValueError) as e:
                 print(e)
         else:
-            # Reload the questions list if empty
+            # Reload the questions dict if empty
             questions_dict = {"q1": question1, "q2": question2, "q3": question3}

@@ -100,7 +100,7 @@ if __name__ == "__main__":
             # Creating a menu with a dictionary
             """ Possible solution to prevent autorun functions, not tested yet
             menu_dict = {1: "question(questions_dict)", 2: False}
-            exec menu_dict[opt]
+            exec(menu_dict[opt])
             """
             menu_dict = {1: question(questions_dict), 2: False}
             try:

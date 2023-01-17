@@ -98,9 +98,9 @@ if __name__ == "__main__":
         # If there's a question in the dictionary
         if questions_dict:
             # Creating a menu with a dictionary
-            """ Prevent functions to autorun, not tested yet.
+            """ Check if functions autorun
             
-            Possible solution:
+            Possible disabling solution:
             menu_dict = {1: "question(questions_dict)", 2: False}
             exec(menu_dict[opt])
             """

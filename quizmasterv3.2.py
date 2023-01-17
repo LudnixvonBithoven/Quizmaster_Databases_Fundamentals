@@ -98,6 +98,10 @@ if __name__ == "__main__":
         # If there's a question in the dictionary
         if questions_dict:
             # Creating a menu with a dictionary
+            """ Possible solution to prevent autorun functions, not tested yet
+            menu_dict = {1: "question(questions_dict)", 2: False}
+            exec menu_dict[opt]
+            """
             menu_dict = {1: question(questions_dict), 2: False}
             try:
                 opt = int(input("1)Question 2)Quit"))

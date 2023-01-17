@@ -30,9 +30,9 @@ question3 = {"How do you insert COMMENTS in Python code?":
 def convert_data(questions_dict):
     """convert_data(questions_dict) -> str, list, str
     
-    Random picking a question from questions_dict
-    Randomize values from gives question/key
-    Only called by the function question
+    Random picking a question from questions_dict,
+    Randomize values from gives question/key,
+    Only called by the function question.
     """
     # Get q1, q2, q3
     all_keys = list(questions_dict.keys())
@@ -48,9 +48,9 @@ def convert_data(questions_dict):
 def question(questions_dict):
     """question(questions_dict) -> dict
  
-    Handeling the options
-    Prompting answer from user
-    validate the answer
+    Handeling the options,
+    Prompting answer from user,
+    validate the answer.
     """
     # Call and unpack the convert_data function
     convert_data(questions_dict)
@@ -98,7 +98,9 @@ if __name__ == "__main__":
         # If there's a question in the dictionary
         if questions_dict:
             # Creating a menu with a dictionary
-            """ Possible solution to prevent autorun functions, not tested yet
+            """ Prevent functions to autorun, not tested yet.
+            
+            Possible solution:
             menu_dict = {1: "question(questions_dict)", 2: False}
             exec(menu_dict[opt])
             """

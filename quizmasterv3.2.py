@@ -28,11 +28,11 @@ question3 = {"How do you insert COMMENTS in Python code?":
 
 
 def convert_data(questions_dict):
-    """convert_data(questions_dict) -> str, list, str
-    
-    Random picking a question from questions_dict,
+    """Random picking a question from questions_dict,
     Randomize values from gives question/key,
     Only called by the function question.
+    
+    return -> str, list, str
     """
     # Get q1, q2, q3
     all_keys = list(questions_dict.keys())
@@ -46,11 +46,11 @@ def convert_data(questions_dict):
     return random_key, question, answers, correct_answer
 
 def question(questions_dict):
-    """question(questions_dict) -> dict
- 
-    Handeling the options,
+    """Handeling the options,
     Prompting answer from user,
     validate the answer.
+    
+    return -> dict
     """
     # Call and unpack the convert_data function
     convert_data(questions_dict)

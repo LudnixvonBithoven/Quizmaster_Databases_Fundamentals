@@ -203,6 +203,6 @@ dct = {keys[i]: values[i] for i in range(len(values))}
 def questions(dictionary, question):
     return dct.get(question)
 
-random_question = rnd.choice(keys)
-answer = questions(dct, random_question)
-print(f"Question: {random_question}\nAnswer: {answer}")
+random_term = rnd.choice(keys)
+term_defined = questions(dct, random_term)
+print(f"Term: {random_term}\nAnswer: {term_defined}")
